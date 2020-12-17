@@ -14,10 +14,10 @@ void print_array(int *a,int n)
     printf("\n");
     return;
 }
-void Insertion_Sort(int *a){
+void Insertion_Sort(int *a,int n){
     int val;
     size_t i = 1;
-    for (; *(a + i) != '\0'; i++)
+    for (;i<n; i++)
     {
         val = *(a+i);
         size_t j = i-1;
@@ -44,7 +44,7 @@ int main(int argc, char const **argv)
     printf("\n\nBefore Insertion_Sort: \n\n");
     print_array(a,n);
     // printf("\nInsertion_Sort function is gonna to call...\n");
-    Insertion_Sort(a);
+    Insertion_Sort(a,n);
     printf("\n\nAfter Insertion_Sort: \n\n");
     print_array(a,n);
     free(a);

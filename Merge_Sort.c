@@ -18,51 +18,49 @@ void merge(int *a, int mid, int low, int high)
 {
     int *W = (int *)calloc((high+1), sizeof(int));
     int i, j, k;
-    i = low;
+    i = k = low;
     j = mid + 1;
-    k = low;
 
     while (i <= mid && j <= high)
     {
         if (*(a+i) < *(a+j))
         {
-            W[k] = *(a+i);
+            (*(W+k)) = *(a+i);
             i++;
             k++;
         }
         else
         {
-            W[k] = *(a+j);
+            (*(W+k)) = *(a+j);
             j++;
             k++;
         }
     }
     while (i <= mid)
     {
-        W[k] = *(a+i);
+        (*(W+k)) = *(a+i);
         k++;
         i++;
     }
     while (j <= high)
     {
-        W[k] = *(a+j);
+        (*(W+k)) = *(a+j);
         k++;
         j++;
     }
     for (int i = low; i <= high; i++)
     {
-        *(a+i) = W[i];
+        *(a+i) = (*(W+i));
     }
     free(W);
 }
 
-void Merge_Sort(int *a, int low, int high){
-    int mid; 
-    if(low<high){
-        mid = (low + high) /2;
-        Merge_Sort(a, low, mid);
-        Merge_Sort(a, mid+1, high);
-        merge(a, mid, low, high);
+void Merge_Sort(int *a, int begin, int end){ 
+    if(begin<end){
+        int point = (begin + end) /2;
+        Merge_Sort(a, begin, point);
+        Merge_Sort(a, point+1, end);
+        merge(a, point, begin, end);
     }
 }
 

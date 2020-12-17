@@ -13,18 +13,17 @@ void print_array(int *a, int n)
     printf("\n");
     return;
 }
-void Bubble_Sort(int *a)
+void Bubble_Sort(int *a, int n)
 {
-    for (size_t i = 0; *(a + i) != '\0'; i++)
+    for (size_t i = 0; i < n-1; i++)
     {
-        for (size_t j = i + 1; *(a + j) != '\0'; j++)
+        for (size_t j = 0; j <n-1-i ; j++)
         {
-            if (a[i] > a[j])
-            {
-                *(a + i) = (*(a + i)) * (*(a + j)) / ((*(a + j)) = (*(a + i)));
+            if((*(a+j))>(*(a+j+1))){
+                (*(a+j+1)) = ((*(a+j)) + (*(a+j+1)))-((*(a+j)) = (*(a+j+1)));
             }
-        }
-    }
+        }  
+    } 
 }
 int main(int argc, char const **argv)
 {
@@ -37,10 +36,10 @@ int main(int argc, char const **argv)
     {
         scanf("%d", (a + i));
     }
-    *(a + n) = '\0';
+    // *(a + n) = '\0';
     printf("\n\nBefore Bubble_Sort: \n\n");
     print_array(a, n);
-    Bubble_Sort(a);
+    Bubble_Sort(a, n);
     printf("\n\nAfter Bubble_Sort: \n\n");
     print_array(a, n);
     free(a);
