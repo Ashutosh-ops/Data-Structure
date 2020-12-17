@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_array(int *a)
+void print_array(int *a,int n)
 {
     int i;
-    for (int i = 0; *(a + i) != '\0'; i++)
+    for (int i = 0; i<n; i++)
     {
         printf("%d\t", *(a + i));
     }
@@ -42,11 +42,11 @@ int main(int argc, char const **argv)
     }
     *(a + n) = '\0';
     printf("\n\nBefore Insertion_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     // printf("\nInsertion_Sort function is gonna to call...\n");
     Insertion_Sort(a);
     printf("\n\nAfter Insertion_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     free(a);
     return 0;
 }

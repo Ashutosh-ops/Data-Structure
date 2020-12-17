@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_array(int *a)
+void print_array(int *a,int n)
 {
     int i;
-    for (int i = 0; *(a + i) != '\0'; i++)
+    for (int i = 0; i<n; i++)
     {
         printf("%d\t", *(a + i));
     }
@@ -40,11 +40,11 @@ int main(int argc, char const **argv)
     }
     *(a + n) = '\0';
     printf("\n\nBefore Bubble_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     // printf("\nBubble_Sort function is gonna to call...\n");
     Bubble_Sort(a);
     printf("\n\nAfter Bubble_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     free(a);
     return 0;
 }

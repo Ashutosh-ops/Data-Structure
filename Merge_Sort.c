@@ -2,12 +2,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define  T_MAX 100  
 
-void print_array(int *a)
+void print_array(int *a, int n)
 {
     int i;
-    for (int i = 0; *(a + i) != '\0'; i++)
+    for (int i = 0; i<n; i++)
     {
         printf("%d\t", *(a + i));
     }
@@ -17,7 +16,8 @@ void print_array(int *a)
 
 void merge(int *a, int mid, int low, int high)
 {
-    int i, j, k, W[T_MAX];
+    int *W = (int *)calloc((high+1), sizeof(int));
+    int i, j, k;
     i = low;
     j = mid + 1;
     k = low;
@@ -53,6 +53,7 @@ void merge(int *a, int mid, int low, int high)
     {
         *(a+i) = W[i];
     }
+    free(W);
 }
 
 void Merge_Sort(int *a, int low, int high){
@@ -76,13 +77,13 @@ int main(int argc, char const **argv)
     {
         scanf("%d", (a + i));
     }
-    *(a + n) = '\0';
+    // *(a + n) = '\0';
     printf("\n\nBefore Merge_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     // printf("\nMerge_Sort function is gonna to call...\n");
     Merge_Sort(a,0,n-1);
     printf("\n\nAfter Merge_Sort: \n\n");
-    print_array(a);
+    print_array(a,n);
     free(a);
     return 0;
 }

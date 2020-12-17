@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-void Adjust(int Heap_of_Numbers[], int i) /*Function to arrange the elements in the heap*/
+void Adjust(int Heap_of_Numbers[], int i)
 {
     int j;
     int copy;
