@@ -6,8 +6,8 @@
 
 void print_array(int *a,int n)
 {
-    int i;
-    for (int i = 0; i<n; i++)
+    size_t i = 0;
+    for (; i<n; i++)
     {
         printf("%d\t", *(a + i));
     }
